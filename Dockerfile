@@ -8,14 +8,19 @@ MAINTAINER Claudio
 # Download and Install SSH
 # ====================
 
-RUN apt-get update \
+RUN	set -ex \
+	&& apt-get update \
 	&& apt-get install -y --no-install-recommends openssh-server \
 	&& echo "root:Docker!" | chpasswd 
+
+
 
 COPY sshd_config /etc/ssh/
 
 COPY entrypoint.sh /usr/local/bin/
+
 RUN chmod u+x /usr/local/bin/entrypoint.sh
 
 EXPOSE 2222 80
+
 ENTRYPOINT ["entrypoint.sh"]
