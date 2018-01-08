@@ -2,7 +2,7 @@
 # Dockerfile for Ubuntu
 #
 FROM ubuntu:16.04
-MAINTAINER Claudio
+MAINTAINER usuario <correo@gmail.com>
 
 # ====================
 # Download and Install SSH
